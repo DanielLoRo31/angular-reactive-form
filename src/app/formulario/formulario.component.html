@@ -1,0 +1,57 @@
+<div class="container div-container">
+  <form id="contact" [formGroup]="formBuilder">
+    <h3>Formulario reactive form</h3>
+    <h4>Ingresa los siguientes datos...</h4>
+
+    <fieldset>
+        <input formControlName="name" placeholder="Nombre" type="text">
+        <div *ngIf="formBuilder.get('name').invalid && formBuilder.get('name').dirty">
+            <p *ngIf="formBuilder.get('name').getError('required')">Dato Requerido</p>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <input formControlName="lastName" placeholder="Apellido" type="text">
+        <div *ngIf="formBuilder.get('lastName').invalid && formBuilder.get('lastName').touched">
+            <p *ngIf="formBuilder.get('lastName').getError('required')">Dato Requerido</p>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <input formControlName="age" placeholder="Edad" type="text">
+        <div *ngIf="formBuilder.get('age').invalid && formBuilder.get('age').touched">
+            <p *ngIf="formBuilder.get('age').getError('required')">Requerido</p>
+            <p *ngIf="formBuilder.get('age').getError('younger') && formBuilder.get('age').value != ''">Eres muy joven</p>
+        </div>
+    </fieldset>
+
+    <fieldset formArrayName="civil">
+        <select >
+            <option *ngFor="let civil of getCivil(); index as civilIndex;" [value]="civilIndex">
+                {{civil.value}}
+            </option>
+        </select>
+    </fieldset>
+
+    <fieldset formArrayName="gender">
+        <label *ngFor="let gender of getGender(); index as genderIndex;" (click)="onCheck()">
+            <input [value]="genderIndex" type="radio" name="gender"> {{gender.value}}
+        </label>  
+    </fieldset>
+
+    <fieldset formArrayName="comments">
+        <div *ngFor="let coment of getComments(); let commentIndex = index;">
+            <input [formControlName]="commentIndex" [placeholder]="'Comentario ' + commentIndex" type="text">
+            <button class="remove-button" (click)="onRemoveComment(commentIndex)">remover</button>
+        </div>
+        <div>
+            <button class="add-button" (click)="onAddComment()">Agregar teléfono</button>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <button class="send-button" (click)="onClickGroup()" type="submit" name="submit"  id="contact-submit">Enviar</button>
+    </fieldset>
+
+  </form>
+</div>

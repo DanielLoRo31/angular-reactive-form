@@ -1,0 +1,106 @@
+.div-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    margin-top: 50px;
+    width: 50%;
+}
+
+h3 {
+    font-size: 1.8em;
+    text-align: center;
+}
+
+h4 {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+fieldset{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    width: 90%;
+}
+
+fieldset > input {
+    width: 100%;
+    padding: 0 10 0 10;
+    text-align: center;
+    border-radius: 50px;
+    border: solid 2px rgb(197, 159, 33);
+    outline: none;
+}
+
+fieldset > select {
+    width: 100%;
+    padding: 0 10 0 10;
+    text-align: center;
+    border-radius: 50px;
+    border: solid 2px rgb(197, 159, 33);
+    outline: none;
+}
+
+fieldset > label {
+    width: 50%;
+    text-align: center;
+}
+
+fieldset > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+fieldset > div > input {
+    width: 70%;
+    padding: 0 10 0 10;
+    text-align: center;
+    border-radius: 50px;
+    border: solid 2px rgb(197, 159, 33);
+    outline: none;
+}
+
+fieldset > div > .remove-button {
+    background-color: rgb(197, 159, 33);
+}
+
+
+fieldset > div > .add-button {
+    background-color: rgb(196, 226, 86);
+}
+
+
+.send-button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.2em;
+    background-color: rgb(211, 122, 39);
+}
+
+button{
+    width: 30%;
+    border-radius: 50px;
+    color: white;
+    padding: 3px 10px 3px 10px;
+    outline: none;
+    border: none;
+    transform: scale(1);
+    transition: .2s;
+}
+
+button:hover{
+    transform: scale(1.2);
+}
+
+button:active{
+    opacity: .7;
+}
